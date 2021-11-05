@@ -1,0 +1,6 @@
+
+- name: Manage our user accounts
+  user:
+    name: "{{ item.username }}"
+    state: "{{ item.state }}"
+  loop: "{{ users }}"

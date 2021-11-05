@@ -1,0 +1,13 @@
+
+# roles come before tasks
+- name: Configure webservers
+  hosts: webservers
+  become: yes
+  roles:
+    - users
+
+- name: Configure database servers
+  hosts: dbservers
+  become: yes
+  roles:
+    - sqlserver

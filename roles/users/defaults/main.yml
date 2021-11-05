@@ -1,0 +1,12 @@
+
+# created variable "users" to be looped
+
+users:
+  - username: samhassan
+    state: present 
+
+  - username: sam
+    state: absent
+
+  - username: hanifa
+    state: present 

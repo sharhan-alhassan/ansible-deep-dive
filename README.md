@@ -1,6 +1,9 @@
 # ansible-deep-dive
 A deep-dive into the inner workings of ansible-playbooks with real-life application scenario
 
+# Troubleshooting:
+- Ping servers before running Playbooks
+
 # Playbook modules:
 - Playbooks uses
 ```bash
@@ -102,3 +105,7 @@ $ ansible-playbook main.yml -i inventory -u ubuntu
 - Roles are ways of automatically loading certain vars_files, tasks, and handlers on a known file structure. Grouping content by roles also allows easy sharing of roles with other users
 
 - A role is like a package of code 
+
+- Roles come before tasks
+
+- In fact, you Run tasks inside Roles
