@@ -97,3 +97,8 @@ $ ansible -i inventory.ini --private-key=/home/to/key.pem/ -u ubuntu -m user -a 
 ```bash
 $ ansible-playbook main.yml -i inventory -u ubuntu
 ```
+
+# Roles
+- Roles are ways of automatically loading certain vars_files, tasks, and handlers on a known file structure. Grouping content by roles also allows easy sharing of roles with other users
+
+- A role is like a package of code 
