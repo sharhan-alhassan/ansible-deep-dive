@@ -109,3 +109,31 @@ $ ansible-playbook main.yml -i inventory -u ubuntu
 - Roles come before tasks
 
 - In fact, you Run tasks inside Roles
+
+```yml
+- name: Configure webservers
+  hosts: webservers
+  become: yes
+  roles:
+    - users
+
+- name: Configure database servers
+  hosts: dbservers
+  become: yes
+  roles:
+    - sqlserver
+```
+# Directory structure for Roles
+- `variables` are installed in the defaults folder of each role
+```bash
+  roles
+  |__sqlserver
+      |__defaults
+      |__tasks
+  |__users
+      |__defaults
+      |__tasks
+  master.yml
+  inventory.ini
+  .gitignore
+```
