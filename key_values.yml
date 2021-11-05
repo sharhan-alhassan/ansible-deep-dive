@@ -3,7 +3,12 @@
   gather_facts: no
   vars:
     hello: world
+    ournumberlist: [1,2,3,4]
+    ourstringlist:
+      - "a"
+      - "b"
+      - "c"
   
   tasks:
     - debug:
-        msg: "Hello, {{ hello }}"
+        msg: "Hello, {{ ourstringlist }}"
