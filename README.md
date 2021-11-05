@@ -52,3 +52,48 @@ $ ansible -i inventory.ini --private-key=/home/to/key.pem/ -u ubuntu -m user -a 
 
 # Playbooks
 - They're ansible configuration, deployment and orchestration language
+- Let's configure `Webservers` and `Database servers`
+
+- `Webservers`
+```yml
+- name: Configure webservers
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Create non-root user
+        user:
+          name: sam
+          state: present
+    - name: Install nginx
+        package:
+          name: nginx
+          state: present
+```
+- `Databse servers`
+```yml
+- name: Configure database servers
+  hosts: dbservers
+  become: yes
+  tasks:
+    - name: Install MySQL Server
+      package:
+        name: mysql-server
+        state: present 
+```
+## Playbooks explanation: Webservers
+- We have two playbooks named `Configure webservers` and `Configure database servers`
+- First playbook, Webservers targets the `webservers` hosts group and assume sudo user/root user with `become=yes`.
+- It performs two tasks. 
+- First task uses the `user module` to create a superuser `sam`
+- Second task uses the `package module` to install ningx
+
+## Database servers
+- Second playbook, Database servers targets the `dbservers` hosts group and assume sudo user/root user with `become=yes`.
+- It performs one tasks. 
+- The task uses the `package module` to install `mysql-server`
+
+# How to Run a Playbook
+- `ansible-playbook <playbook-name> -i <inventory-name> -u <user-name>`
+```bash
+$ ansible-playbook main.yml -i inventory -u ubuntu
+```

@@ -1,0 +1,21 @@
+- name: Configure webservers
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Create a non-root user 
+      user:
+        name: sam 
+        state: present 
+    - name: Install nginx
+      package:
+        name: nginx
+        state: present 
+
+- name: Configure database servers
+  hosts: dbservers
+  become: yes
+  tasks:
+    - name: Install MySQL Server
+      package:
+        name: mysql-server
+        state: present 
