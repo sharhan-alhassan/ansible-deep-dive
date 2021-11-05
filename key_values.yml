@@ -8,7 +8,12 @@
       - "a"
       - "b"
       - "c"
-  
+    ourmap:
+      hi: sharhan
+      goodbye:
+        person: hanifa
+
   tasks:
     - debug:
-        msg: "Hello, {{ ourstringlist }}"
+        # msg: "Hello, {{ ourstringlist }}"
+        msg: "Hello, {{ ourmap.hi }}"  # or {{ ourmap['hi'] }}
