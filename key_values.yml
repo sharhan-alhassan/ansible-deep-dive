@@ -1,0 +1,9 @@
+- name: variables...
+  hosts: webservers
+  gather_facts: no
+  vars:
+    hello: world
+  
+  tasks:
+    - debug:
+        msg: "Hello, {{ hello }}"
