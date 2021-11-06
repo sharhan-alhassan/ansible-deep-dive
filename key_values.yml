@@ -2,6 +2,7 @@
   hosts: webservers
   gather_facts: no
   vars:
+    runtask: true
     hello: world
     ournumberlist: [1,2,3,4]
     ourstringlist:
@@ -12,8 +13,13 @@
       hi: sharhan
       goodbye:
         person: hanifa
+      a: [1]
+      b: [2] 
+      
 
   tasks:
     - debug:
-        # msg: "Hello, {{ ourstringlist }}"
         msg: "Hello, {{ ourmap.hi }}"  # or {{ ourmap['hi'] }}
+      when: runtask == false
+    - debug:
+        msg: "Goodbye, {{ ourmap.goodbye.person }}"
