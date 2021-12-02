@@ -1,6 +1,10 @@
 # ansible-deep-dive
 A deep-dive into the inner workings of ansible-playbooks with real-life application scenario
 
+# Resources:
+- [Redhat awesome docs](https://aap2.demoredhat.com/)
+- [Redhat video docs](https://rhtapps.redhat.com/promo/course/do007?segment=0)
+
 # Playbook modules:
 - Playbooks uses
 ```bash
